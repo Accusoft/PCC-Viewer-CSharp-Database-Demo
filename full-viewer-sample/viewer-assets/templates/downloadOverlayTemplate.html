@@ -1,0 +1,65 @@
+    <div class="pcc-overlay-inner" data-download-overlay>
+    <button class="pcc-overlay-closer">&#215;</button>
+    <div class="pcc-download-menu">
+        <% if (options && options.mode === 'pending') { %>
+            <div class="pcc-center">
+                <span><%= options.language.burnInPending %></span>
+                <span class="pcc-load"></span>
+            </div>
+            <div class="pcc-center pcc-margin-top">
+                <button class="pcc-overlay-cancel pcc-secondary"><%= options.language.cancelButton %></button>
+            </div>
+        <% } else if (options && options.mode === 'complete') { %>
+            <div class="pcc-center"><%= options.language.burnInComplete %></div>
+            <div class="pcc-center pcc-margin-top">
+                <button class="pcc-overlay-cancel pcc-secondary"><%= options.language.cancelButton %></button>
+                <button class="pcc-overlay-download"><%= options.language.saveButton %></button>
+            </div>
+        <% } else if (options && options.mode === 'error') { %>
+            <div class="pcc-center"><%= options.language.burnInError %></div>
+            <div class="pcc-center pcc-margin-top">
+                <button class="pcc-overlay-cancel pcc-secondary"><%= options.language.cancelButton %></button>
+                <button class="pcc-overlay-retry"><%= options.language.retryButton %></button>
+            </div>
+        <% } else { %>
+
+
+                <div class="pcc-row">
+                    <h4><%= options.language.fileDownloadAs %></h4>
+                </div>
+
+                <div class="pcc-row">
+                    <div class="pcc-select pcc-select-download" data-pcc-toggle="dropdown-download">
+                        <div class="pcc-label" data-download-format><%= options.language.fileDownloadOriginalDocument %></div>
+                        <div class="pcc-arrow-down"></div>
+                        <div data-pcc-toggle-id="dropdown-download" class="pcc-dropdown">
+                            <% _.forEach(options.downloadFormats, function(downloadFormat, index) { %>
+                            <div class="<%= (index % 2 === 0) ? 'even' : 'odd' %>" data-download-format-option="<%= downloadFormat %>"><%= downloadFormat %></div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pcc-row">
+                    <h4><%= options.language.fileDownloadInclude %></h4>
+                </div>
+
+                <div class="pcc-row">
+                    <div class="pcc-col-6">
+                        <div data-pcc-checkbox="esignSave" data-download-redactions data-pcc-esign-save="true" class=" pcc-checkbox <%=(options.types.redaction) ? '' : 'pcc-disabled' %> ">
+                            <span></span><label><%= options.language.fileDownloadRedactions %></label>
+                        </div>
+                    </div>
+                    <div class="pcc-col-6">
+                        <div data-pcc-checkbox="esignSave" data-download-esignatures data-pcc-esign-save="true" class=" pcc-checkbox <%=(options.types.signature) ? '' : 'pcc-disabled' %> " >
+                            <span></span><label><%= options.language.fileDownloadESignature %></label>
+                        </div>
+                    </div>
+                </div>
+        <div class="pcc-row">
+                <button data-pcc-download="download" class="pcc-center"><%= options.language.download %></button>
+        </div>
+
+        <% } %>
+    </div>
+</div>

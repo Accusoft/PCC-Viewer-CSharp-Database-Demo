@@ -1,0 +1,22 @@
+<div class='pcc-hyperlink pcc-clearfix pcc-hyperlink-<%= mode %>'>
+    <% if (mode === "edit") { %>
+        <span class="pcc-hyperlink-label"><%= language.hyperlink %></span>
+        <div class="pcc-hyperlink-right">
+            <button data-pcc-hyperlink="done" class="pcc-hyperlink-icon pcc-hyperlink-icon-done" title="<%= language.doneButton %>"></button>
+            <button data-pcc-hyperlink="delete" class="pcc-hyperlink-icon pcc-hyperlink-icon-delete" title="<%= language.deleteButton %>"></button>
+        </div>
+        <div class="pcc-hyperlink-input">
+            <button data-pcc-hyperlink="clear">&#215;</button>
+            <input type="text">
+        </div>
+    <%} else if (mode === "view" && link) { %>
+        <% if (hrefType === "page") { %>
+            <a href="<%= link %>" data-pcc-link-navigate data-href-type="<%= hrefType %>"><%= language.documentHyperlinkGotoPage + link %>.</a>
+        <%} else  { %>
+            <% if (hyperlinkType === "textHyperlink") { %>
+                <button data-pcc-hyperlink="edit" class="pcc-hyperlink-icon pcc-hyperlink-icon-edit" title="<%= language.editButton %>"></button>
+            <% } %>
+            <a href="<%= link %>" data-pcc-link-navigate target="_blank"><%= link %></a>
+        <% } %>
+    <% } %>
+</div>

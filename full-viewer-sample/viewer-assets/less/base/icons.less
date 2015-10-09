@@ -1,0 +1,658 @@
+// create an icon mixin
+.icon-mixin(@name, @offsetLeft: 0px, @offsetTop: 0px) {
+    // get the top and left variables based on the icon name
+    @leftVar: "pcc-icon-@{name}-left";
+    @topVar: "pcc-icon-@{name}-top";
+    
+    // generate the background position
+    background-position: (@@leftVar + @offsetLeft) (@@topVar + @offsetTop);
+}
+
+// in a loop,
+// write the top and left variables for each icon
+// output the icon CSS using the mixin
+
+    @pcc-icon-alert-left: 0px;
+    @pcc-icon-alert-top: 0px;
+
+    .pcc-icon-alert{
+        .icon-mixin(alert);
+    }
+
+    @pcc-icon-all-left: -26px;
+    @pcc-icon-all-top: 0px;
+
+    .pcc-icon-all{
+        .icon-mixin(all);
+    }
+
+    @pcc-icon-annotate-arrow-left: -52px;
+    @pcc-icon-annotate-arrow-top: 0px;
+
+    .pcc-icon-annotate-arrow{
+        .icon-mixin(annotate-arrow);
+    }
+
+    @pcc-icon-annotate-disabled-left: -78px;
+    @pcc-icon-annotate-disabled-top: 0px;
+
+    .pcc-icon-annotate-disabled{
+        .icon-mixin(annotate-disabled);
+    }
+
+    @pcc-icon-annotate-ellipse-filled-left: -104px;
+    @pcc-icon-annotate-ellipse-filled-top: 0px;
+
+    .pcc-icon-annotate-ellipse-filled{
+        .icon-mixin(annotate-ellipse-filled);
+    }
+
+    @pcc-icon-annotate-ellipse-left: -130px;
+    @pcc-icon-annotate-ellipse-top: 0px;
+
+    .pcc-icon-annotate-ellipse{
+        .icon-mixin(annotate-ellipse);
+    }
+
+    @pcc-icon-annotate-freehand-left: -156px;
+    @pcc-icon-annotate-freehand-top: 0px;
+
+    .pcc-icon-annotate-freehand{
+        .icon-mixin(annotate-freehand);
+    }
+
+    @pcc-icon-annotate-line-left: -182px;
+    @pcc-icon-annotate-line-top: 0px;
+
+    .pcc-icon-annotate-line{
+        .icon-mixin(annotate-line);
+    }
+
+    @pcc-icon-annotate-polyline-left: -208px;
+    @pcc-icon-annotate-polyline-top: 0px;
+
+    .pcc-icon-annotate-polyline{
+        .icon-mixin(annotate-polyline);
+    }
+
+    @pcc-icon-annotate-rectangle-filled-left: -234px;
+    @pcc-icon-annotate-rectangle-filled-top: 0px;
+
+    .pcc-icon-annotate-rectangle-filled{
+        .icon-mixin(annotate-rectangle-filled);
+    }
+
+    @pcc-icon-annotate-rectangle-left: -260px;
+    @pcc-icon-annotate-rectangle-top: 0px;
+
+    .pcc-icon-annotate-rectangle{
+        .icon-mixin(annotate-rectangle);
+    }
+
+    @pcc-icon-annotate-stamp-left: -286px;
+    @pcc-icon-annotate-stamp-top: 0px;
+
+    .pcc-icon-annotate-stamp{
+        .icon-mixin(annotate-stamp);
+    }
+
+    @pcc-icon-annotate-text-left: -312px;
+    @pcc-icon-annotate-text-top: 0px;
+
+    .pcc-icon-annotate-text{
+        .icon-mixin(annotate-text);
+    }
+
+    @pcc-icon-annotate-left: -338px;
+    @pcc-icon-annotate-top: 0px;
+
+    .pcc-icon-annotate{
+        .icon-mixin(annotate);
+    }
+
+    @pcc-icon-annotation-add-left: -364px;
+    @pcc-icon-annotation-add-top: 0px;
+
+    .pcc-icon-annotation-add{
+        .icon-mixin(annotation-add);
+    }
+
+    @pcc-icon-beginswith-left: -390px;
+    @pcc-icon-beginswith-top: 0px;
+
+    .pcc-icon-beginswith{
+        .icon-mixin(beginswith);
+    }
+
+    @pcc-icon-border-width-left: -416px;
+    @pcc-icon-border-width-top: 0px;
+
+    .pcc-icon-border-width{
+        .icon-mixin(border-width);
+    }
+
+    @pcc-icon-check-left: -442px;
+    @pcc-icon-check-top: 0px;
+
+    .pcc-icon-check{
+        .icon-mixin(check);
+    }
+
+    @pcc-icon-circle-left: 0px;
+    @pcc-icon-circle-top: -26px;
+
+    .pcc-icon-circle{
+        .icon-mixin(circle);
+    }
+
+    @pcc-icon-comment-left: -26px;
+    @pcc-icon-comment-top: -26px;
+
+    .pcc-icon-comment{
+        .icon-mixin(comment);
+    }
+
+    @pcc-icon-context-left: -52px;
+    @pcc-icon-context-top: -26px;
+
+    .pcc-icon-context{
+        .icon-mixin(context);
+    }
+
+    @pcc-icon-current-left: -78px;
+    @pcc-icon-current-top: -26px;
+
+    .pcc-icon-current{
+        .icon-mixin(current);
+    }
+
+    @pcc-icon-datestamp-left: -104px;
+    @pcc-icon-datestamp-top: -26px;
+
+    .pcc-icon-datestamp{
+        .icon-mixin(datestamp);
+    }
+
+    @pcc-icon-delete-left: -130px;
+    @pcc-icon-delete-top: -26px;
+
+    .pcc-icon-delete{
+        .icon-mixin(delete);
+    }
+
+    @pcc-icon-download-left: -156px;
+    @pcc-icon-download-top: -26px;
+
+    .pcc-icon-download{
+        .icon-mixin(download);
+    }
+
+    @pcc-icon-endswith-left: -182px;
+    @pcc-icon-endswith-top: -26px;
+
+    .pcc-icon-endswith{
+        .icon-mixin(endswith);
+    }
+
+    @pcc-icon-esign-left: -208px;
+    @pcc-icon-esign-top: -26px;
+
+    .pcc-icon-esign{
+        .icon-mixin(esign);
+    }
+
+    @pcc-icon-exactword-left: -234px;
+    @pcc-icon-exactword-top: -26px;
+
+    .pcc-icon-exactword{
+        .icon-mixin(exactword);
+    }
+
+    @pcc-icon-external-link-left: -260px;
+    @pcc-icon-external-link-top: -26px;
+
+    .pcc-icon-external-link{
+        .icon-mixin(external-link);
+    }
+
+    @pcc-icon-eye-closed-left: -286px;
+    @pcc-icon-eye-closed-top: -26px;
+
+    .pcc-icon-eye-closed{
+        .icon-mixin(eye-closed);
+    }
+
+    @pcc-icon-filter-left: -312px;
+    @pcc-icon-filter-top: -26px;
+
+    .pcc-icon-filter{
+        .icon-mixin(filter);
+    }
+
+    @pcc-icon-firstpage-left: -338px;
+    @pcc-icon-firstpage-top: -26px;
+
+    .pcc-icon-firstpage{
+        .icon-mixin(firstpage);
+    }
+
+    @pcc-icon-fitcontent-left: -364px;
+    @pcc-icon-fitcontent-top: -26px;
+
+    .pcc-icon-fitcontent{
+        .icon-mixin(fitcontent);
+    }
+
+    @pcc-icon-freehandSign-left: -390px;
+    @pcc-icon-freehandSign-top: -26px;
+
+    .pcc-icon-freehandSign{
+        .icon-mixin(freehandSign);
+    }
+
+    @pcc-icon-fullscreen-left: -416px;
+    @pcc-icon-fullscreen-top: -26px;
+
+    .pcc-icon-fullscreen{
+        .icon-mixin(fullscreen);
+    }
+
+    @pcc-icon-hamburger-menu-left: -442px;
+    @pcc-icon-hamburger-menu-top: -26px;
+
+    .pcc-icon-hamburger-menu{
+        .icon-mixin(hamburger-menu);
+    }
+
+    @pcc-icon-highlight-left: 0px;
+    @pcc-icon-highlight-top: -52px;
+
+    .pcc-icon-highlight{
+        .icon-mixin(highlight);
+    }
+
+    @pcc-icon-image-stamp-left: -26px;
+    @pcc-icon-image-stamp-top: -52px;
+
+    .pcc-icon-image-stamp{
+        .icon-mixin(image-stamp);
+    }
+
+    @pcc-icon-imageSign-left: -52px;
+    @pcc-icon-imageSign-top: -52px;
+
+    .pcc-icon-imageSign{
+        .icon-mixin(imageSign);
+    }
+
+    @pcc-icon-landscape-left: -78px;
+    @pcc-icon-landscape-top: -52px;
+
+    .pcc-icon-landscape{
+        .icon-mixin(landscape);
+    }
+
+    @pcc-icon-lastpage-left: -104px;
+    @pcc-icon-lastpage-top: -52px;
+
+    .pcc-icon-lastpage{
+        .icon-mixin(lastpage);
+    }
+
+    @pcc-icon-layer-back-left: -130px;
+    @pcc-icon-layer-back-top: -52px;
+
+    .pcc-icon-layer-back{
+        .icon-mixin(layer-back);
+    }
+
+    @pcc-icon-layer-backward-left: -156px;
+    @pcc-icon-layer-backward-top: -52px;
+
+    .pcc-icon-layer-backward{
+        .icon-mixin(layer-backward);
+    }
+
+    @pcc-icon-layer-forward-left: -182px;
+    @pcc-icon-layer-forward-top: -52px;
+
+    .pcc-icon-layer-forward{
+        .icon-mixin(layer-forward);
+    }
+
+    @pcc-icon-layer-front-left: -208px;
+    @pcc-icon-layer-front-top: -52px;
+
+    .pcc-icon-layer-front{
+        .icon-mixin(layer-front);
+    }
+
+    @pcc-icon-link-left: -234px;
+    @pcc-icon-link-top: -52px;
+
+    .pcc-icon-link{
+        .icon-mixin(link);
+    }
+
+    @pcc-icon-list-left: -260px;
+    @pcc-icon-list-top: -52px;
+
+    .pcc-icon-list{
+        .icon-mixin(list);
+    }
+
+    @pcc-icon-load-left: -286px;
+    @pcc-icon-load-top: -52px;
+
+    .pcc-icon-load{
+        .icon-mixin(load);
+    }
+
+    @pcc-icon-loader-left: -312px;
+    @pcc-icon-loader-top: -52px;
+
+    .pcc-icon-loader{
+        .icon-mixin(loader);
+    }
+
+    @pcc-icon-magnifiertool-left: -338px;
+    @pcc-icon-magnifiertool-top: -52px;
+
+    .pcc-icon-magnifiertool{
+        .icon-mixin(magnifiertool);
+    }
+
+    @pcc-icon-matchcase-left: -364px;
+    @pcc-icon-matchcase-top: -52px;
+
+    .pcc-icon-matchcase{
+        .icon-mixin(matchcase);
+    }
+
+    @pcc-icon-nextpage-left: -390px;
+    @pcc-icon-nextpage-top: -52px;
+
+    .pcc-icon-nextpage{
+        .icon-mixin(nextpage);
+    }
+
+    @pcc-icon-opacity-left: -416px;
+    @pcc-icon-opacity-top: -52px;
+
+    .pcc-icon-opacity{
+        .icon-mixin(opacity);
+    }
+
+    @pcc-icon-page-left: -442px;
+    @pcc-icon-page-top: -52px;
+
+    .pcc-icon-page{
+        .icon-mixin(page);
+    }
+
+    @pcc-icon-pantool-left: 0px;
+    @pcc-icon-pantool-top: -78px;
+
+    .pcc-icon-pantool{
+        .icon-mixin(pantool);
+    }
+
+    @pcc-icon-place-left: -26px;
+    @pcc-icon-place-top: -78px;
+
+    .pcc-icon-place{
+        .icon-mixin(place);
+    }
+
+    @pcc-icon-portrait-left: -52px;
+    @pcc-icon-portrait-top: -78px;
+
+    .pcc-icon-portrait{
+        .icon-mixin(portrait);
+    }
+
+    @pcc-icon-prevpage-left: -78px;
+    @pcc-icon-prevpage-top: -78px;
+
+    .pcc-icon-prevpage{
+        .icon-mixin(prevpage);
+    }
+
+    @pcc-icon-print-left: -104px;
+    @pcc-icon-print-top: -78px;
+
+    .pcc-icon-print{
+        .icon-mixin(print);
+    }
+
+    @pcc-icon-range-left: -130px;
+    @pcc-icon-range-top: -78px;
+
+    .pcc-icon-range{
+        .icon-mixin(range);
+    }
+
+    @pcc-icon-rectanglezoomtool-left: -156px;
+    @pcc-icon-rectanglezoomtool-top: -78px;
+
+    .pcc-icon-rectanglezoomtool{
+        .icon-mixin(rectanglezoomtool);
+    }
+
+    @pcc-icon-redact-textselection-left: -182px;
+    @pcc-icon-redact-textselection-top: -78px;
+
+    .pcc-icon-redact-textselection{
+        .icon-mixin(redact-textselection);
+    }
+
+    @pcc-icon-redact-transparent-left: -208px;
+    @pcc-icon-redact-transparent-top: -78px;
+
+    .pcc-icon-redact-transparent{
+        .icon-mixin(redact-transparent);
+    }
+
+    @pcc-icon-redact-left: -234px;
+    @pcc-icon-redact-top: -78px;
+
+    .pcc-icon-redact{
+        .icon-mixin(redact);
+    }
+
+    @pcc-icon-redactionViewMode-left: -260px;
+    @pcc-icon-redactionViewMode-top: -78px;
+
+    .pcc-icon-redactionViewMode{
+        .icon-mixin(redactionViewMode);
+    }
+
+    @pcc-icon-rotate-doc-cc-left: -286px;
+    @pcc-icon-rotate-doc-cc-top: -78px;
+
+    .pcc-icon-rotate-doc-cc{
+        .icon-mixin(rotate-doc-cc);
+    }
+
+    @pcc-icon-rotate-doc-cw-left: -312px;
+    @pcc-icon-rotate-doc-cw-top: -78px;
+
+    .pcc-icon-rotate-doc-cw{
+        .icon-mixin(rotate-doc-cw);
+    }
+
+    @pcc-icon-rotate-page-cc-left: -338px;
+    @pcc-icon-rotate-page-cc-top: -78px;
+
+    .pcc-icon-rotate-page-cc{
+        .icon-mixin(rotate-page-cc);
+    }
+
+    @pcc-icon-rotate-page-cw-left: -364px;
+    @pcc-icon-rotate-page-cw-top: -78px;
+
+    .pcc-icon-rotate-page-cw{
+        .icon-mixin(rotate-page-cw);
+    }
+
+    @pcc-icon-save-left: -390px;
+    @pcc-icon-save-top: -78px;
+
+    .pcc-icon-save{
+        .icon-mixin(save);
+    }
+
+    @pcc-icon-search-quick-actions-left: -416px;
+    @pcc-icon-search-quick-actions-top: -78px;
+
+    .pcc-icon-search-quick-actions{
+        .icon-mixin(search-quick-actions);
+    }
+
+    @pcc-icon-search-left: -442px;
+    @pcc-icon-search-top: -78px;
+
+    .pcc-icon-search{
+        .icon-mixin(search);
+    }
+
+    @pcc-icon-text-bold-left: 0px;
+    @pcc-icon-text-bold-top: -104px;
+
+    .pcc-icon-text-bold{
+        .icon-mixin(text-bold);
+    }
+
+    @pcc-icon-text-center-left: -26px;
+    @pcc-icon-text-center-top: -104px;
+
+    .pcc-icon-text-center{
+        .icon-mixin(text-center);
+    }
+
+    @pcc-icon-text-italic-left: -52px;
+    @pcc-icon-text-italic-top: -104px;
+
+    .pcc-icon-text-italic{
+        .icon-mixin(text-italic);
+    }
+
+    @pcc-icon-text-left-left: -78px;
+    @pcc-icon-text-left-top: -104px;
+
+    .pcc-icon-text-left{
+        .icon-mixin(text-left);
+    }
+
+    @pcc-icon-text-right-left: -104px;
+    @pcc-icon-text-right-top: -104px;
+
+    .pcc-icon-text-right{
+        .icon-mixin(text-right);
+    }
+
+    @pcc-icon-text-strikeout-left: -130px;
+    @pcc-icon-text-strikeout-top: -104px;
+
+    .pcc-icon-text-strikeout{
+        .icon-mixin(text-strikeout);
+    }
+
+    @pcc-icon-text-underline-left: -156px;
+    @pcc-icon-text-underline-top: -104px;
+
+    .pcc-icon-text-underline{
+        .icon-mixin(text-underline);
+    }
+
+    @pcc-icon-textSign-left: -182px;
+    @pcc-icon-textSign-top: -104px;
+
+    .pcc-icon-textSign{
+        .icon-mixin(textSign);
+    }
+
+    @pcc-icon-texttool-left: -208px;
+    @pcc-icon-texttool-top: -104px;
+
+    .pcc-icon-texttool{
+        .icon-mixin(texttool);
+    }
+
+    @pcc-icon-thumbnails-left: -234px;
+    @pcc-icon-thumbnails-top: -104px;
+
+    .pcc-icon-thumbnails{
+        .icon-mixin(thumbnails);
+    }
+
+    @pcc-icon-triangle-down-left: -260px;
+    @pcc-icon-triangle-down-top: -104px;
+
+    .pcc-icon-triangle-down{
+        .icon-mixin(triangle-down);
+    }
+
+    @pcc-icon-triangle-up-left: -286px;
+    @pcc-icon-triangle-up-top: -104px;
+
+    .pcc-icon-triangle-up{
+        .icon-mixin(triangle-up);
+    }
+
+    @pcc-icon-updown-left: -312px;
+    @pcc-icon-updown-top: -104px;
+
+    .pcc-icon-updown{
+        .icon-mixin(updown);
+    }
+
+    @pcc-icon-view-left: -338px;
+    @pcc-icon-view-top: -104px;
+
+    .pcc-icon-view{
+        .icon-mixin(view);
+    }
+
+    @pcc-icon-wholeword-left: -364px;
+    @pcc-icon-wholeword-top: -104px;
+
+    .pcc-icon-wholeword{
+        .icon-mixin(wholeword);
+    }
+
+    @pcc-icon-wildcard-left: -390px;
+    @pcc-icon-wildcard-top: -104px;
+
+    .pcc-icon-wildcard{
+        .icon-mixin(wildcard);
+    }
+
+    @pcc-icon-wrench-left: -416px;
+    @pcc-icon-wrench-top: -104px;
+
+    .pcc-icon-wrench{
+        .icon-mixin(wrench);
+    }
+
+    @pcc-icon-x-left: -442px;
+    @pcc-icon-x-top: -104px;
+
+    .pcc-icon-x{
+        .icon-mixin(x);
+    }
+
+    @pcc-icon-zoomin-left: 0px;
+    @pcc-icon-zoomin-top: -130px;
+
+    .pcc-icon-zoomin{
+        .icon-mixin(zoomin);
+    }
+
+    @pcc-icon-zoomout-left: -26px;
+    @pcc-icon-zoomout-top: -130px;
+
+    .pcc-icon-zoomout{
+        .icon-mixin(zoomout);
+    }
+

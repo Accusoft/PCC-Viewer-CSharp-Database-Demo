@@ -1,0 +1,81 @@
+/* this stylesheet contains only fonts used for eSignature. This sheet can be used on pages that do not include 
+ * the full viewer, but still want to take advantage of the fonts. The fonts are also included in viewer.css, so 
+ * that this sheet does not need to be requested separately by default. It is, however, used in printTemplate.html.
+ */
+@font-face {
+  font-family: 'Grand Hotel';
+  src: url('../fonts/3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.eot');
+  src: url('../fonts/3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.woff') format('woff'), url('../fonts/3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.ttf') format('truetype'), url('../fonts/3cfeccea1bf886df1f9451ef753ba5f73a31da7b.pcc.svg#grand_hotelregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('../fonts/aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.eot');
+  src: url('../fonts/aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.woff') format('woff'), url('../fonts/aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.ttf') format('truetype'), url('../fonts/aa0d5bdb92ca091b4e8be4491ba595d849132112.pcc.svg#great_vibesregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../fonts/04fcd4e29b919131ee9aed0486bf333152169927.pcc.eot');
+  src: url('../fonts/04fcd4e29b919131ee9aed0486bf333152169927.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/04fcd4e29b919131ee9aed0486bf333152169927.pcc.woff') format('woff'), url('../fonts/04fcd4e29b919131ee9aed0486bf333152169927.pcc.ttf') format('truetype'), url('../fonts/04fcd4e29b919131ee9aed0486bf333152169927.pcc.svg#pacificoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sacramento';
+  src: url('../fonts/a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.eot');
+  src: url('../fonts/a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.woff') format('woff'), url('../fonts/a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.ttf') format('truetype'), url('../fonts/a06f655f6a9e41e43d9f29a899aec7cbe840c379.pcc.svg#sacramentoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cedarville Cursive';
+  src: url('../fonts/ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.eot');
+  src: url('../fonts/ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.woff') format('woff'), url('../fonts/ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.ttf') format('truetype'), url('../fonts/ed653bd29fb61ae965fc19f1a08b586f935c3ea0.pcc.svg#cedarville_cursiveregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('../fonts/cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.eot');
+  src: url('../fonts/cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.woff') format('woff'), url('../fonts/cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.ttf') format('truetype'), url('../fonts/cbd792188e533b1d586f57c0f95fdc5553ffc91e.pcc.svg#dancing_scriptregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Italianno';
+  src: url('../fonts/9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.eot');
+  src: url('../fonts/9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.woff') format('woff'), url('../fonts/9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.ttf') format('truetype'), url('../fonts/9ff77456fe32f3bc3eae887cad4b6e35e126a805.pcc.svg#italiannoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'La Belle Aurore';
+  src: url('../fonts/b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.eot');
+  src: url('../fonts/b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.woff') format('woff'), url('../fonts/b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.ttf') format('truetype'), url('../fonts/b9aeaf5a0556b19cfb1cfd1ff0abe87453d7cc97.pcc.svg#la_belle_auroreregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Mono';
+  src: url('../fonts/2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.eot');
+  src: url('../fonts/2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.woff') format('woff'), url('../fonts/2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.ttf') format('truetype'), url('../fonts/2384b3206c73c184bf7c606d7d7be173dcced41f.pcc.svg#pt_monoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('../fonts/5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.eot');
+  src: url('../fonts/5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.woff') format('woff'), url('../fonts/5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.ttf') format('truetype'), url('../fonts/5d8e94beb7a2bddb3bf4d1fa9765a52c216708f3.pcc.svg#fira_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Serif';
+  src: url('../fonts/cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.eot');
+  src: url('../fonts/cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.eot?#iefix') format('embedded-opentype'), url('../fonts/cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.woff') format('woff'), url('../fonts/cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.ttf') format('truetype'), url('../fonts/cc4709ae0d3195bc76b84d2fc0619fbf5bc8872f.pcc.svg#pt_serifregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

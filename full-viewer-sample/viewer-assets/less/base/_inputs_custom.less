@@ -1,0 +1,116 @@
+@import (reference) "_icons.less";
+
+// mixins for various input components
+.radioSpan() {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    line-height: 26px;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: @border_white;
+    border: 1px inset @border_light;
+}
+.radioLabel() {
+    margin: 0 0 0 5px;
+    display: inline-block;
+    color: @font_color_d20;
+    width: 75%;
+    vertical-align: middle;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// custom radios
+.pccv [data-pcc-radio] {
+    cursor: pointer;
+    
+    span {
+        .radioSpan;
+    }
+    
+    label {
+        .radioLabel;
+    }
+
+    &.pcc-checked span {
+        .pccv .icon-mixin(circle, -7px, -7px);
+        background-color: @background_white;
+    }
+}
+
+.pccv label.primary {
+    margin: 0;
+    display: inline-block;
+    color: @font_color_d20;
+    width: 75%;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pccv label.secondary {
+    margin: 0;
+    display: inline-block;
+    color: @font_color_d25;
+    width: 75%;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+// custom checkbox
+.checkboxSpan() {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    line-height: 26px;
+    vertical-align: middle;
+    border-radius: 2px;
+    background-color: @background_white;
+    border: 1px inset @border_light;
+}
+.checkboxLabel() {
+    margin: 0 0 0 5px;
+    display: inline-block;
+    color: @font_color_d20;
+    width: 75%;
+    vertical-align: middle;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.checkboxIcon() {
+    .pccv .icon-mixin(check, -4px, -4px);
+    background-color: @background_white;
+}
+
+.pccv [data-pcc-checkbox] { 
+    cursor: pointer; 
+
+    span {
+        .checkboxSpan;
+    }
+    
+    label {
+        .checkboxLabel;
+    }
+    
+    &.pcc-checked span {
+        .checkboxIcon;
+    }
+}
+
+.pccv [data-pcc-checkbox].pcc-disabled {
+    color: @font_color_d40;
+    border-color: none;
+    opacity: .2;
+    filter: alpha(opacity=20);
+    cursor: default !important;
+}

@@ -1,0 +1,48 @@
+
+// loading indicator
+.loader() {
+    &:extend(.pccv .pcc-icon-loader);
+    display: inline-block;
+
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-name: pcc-anim-load;
+            animation-name: pcc-anim-load;
+
+    @-webkit-keyframes pcc-anim-load {
+        0% {
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg)
+        }
+        100% {
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg)
+        }
+    }
+
+    @keyframes pcc-anim-load {
+        0% {
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg)
+        }
+        100% {
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg)
+        }
+    }
+}
+
+.pccv .pcc-load,
+.pccv .pccPageListLoading,
+.pccv .pccPageListItemLoading {
+    .loader;
+}
+
+.pccv .pccPageListLoading,
+.pccv .pccPageListItemLoading {
+    display: block
+}

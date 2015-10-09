@@ -1,0 +1,254 @@
+/* page list specific */
+
+.pccViewerControl {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    /* promote to a new layer */
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    /* iOS momentum scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* helps touch zoom not overlap any other element */
+    overflow: hidden;
+}
+/* normalize override */
+svg:not(:root) {overflow:visible!important;}
+
+.pccPageListContainer{
+    box-sizing: border-box;
+}
+
+.pccPageListLoading {
+    height: 30px;
+    margin: -15px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+}
+
+.pccPageListComments {
+    position: relative;
+    min-width: 300px;
+    height: auto;
+    vertical-align: top;
+    display: table-cell;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.pccPageListComments > div {
+    position: absolute;   
+}
+
+.pccHidden {
+    display: none;
+}
+
+.pccPageListItem {
+    background: #fff;
+    overflow: hidden;
+    margin: 13px;
+    vertical-align: middle;
+    border-bottom: 1px solid #d4d6db;
+}
+
+/* Single Page view mode */
+.pccSinglePageView .pccPageListItem {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;    
+}
+
+/* Next and previous page list items for single page view mode */
+.pccSinglePageView .pccNextPage {opacity:0;z-index:0;}
+.pccSinglePageView .pccPreviousPage {opacity:0;z-index:0;}
+.pccSinglePageView .pccCurrentPage {opacity:1;z-index:1;}
+
+/* Default animations for single page view mode */
+.pccSinglePageView .pccNextPageIn { animation-name:moveInFromRight;-webkit-animation-name:moveInFromRight;}
+.pccSinglePageView .pccPreviousPageIn {animation-name:moveInFromLeft;-webkit-animation-name:moveInFromLeft;}
+.pccSinglePageView .pccPageForward {animation-name:moveLeft;-webkit-animation-name:moveLeft;}
+.pccSinglePageView .pccPageBack {animation-name:moveRight;-webkit-animation-name:moveRight;}
+@keyframes moveRight {0% {transform: translate3d(0, 0, 0); opacity:1;} 100% {transform: translate3d(110%, 0, 0); opacity:0;}}
+@-webkit-keyframes moveRight {0% {-webkit-transform: translate3d(0, 0, 0); opacity:1;} 100% {-webkit-transform: translate3d(110%, 0, 0); opacity:0;}}
+@keyframes moveLeft {0% {transform: translate3d(0, 0, 0); opacity:1;} 100% {transform: translate3d(-110%, 0, 0); opacity:0;}}
+@-webkit-keyframes moveLeft {0% {-webkit-transform: translate3d(0, 0, 0); opacity:1;} 100% {-webkit-transform: translate3d(-110%, 0, 0); opacity:0;}}
+@keyframes moveInFromLeft {0% {transform: translate3d(-110%, 0, 0); opacity:0;} 100% {transform: translate3d(0, 0, 0); opacity:1;}}
+@-webkit-keyframes moveInFromLeft {0% {-webkit-transform: translate3d(-110%, 0, 0); opacity:0;} 100% {-webkit-transform: translate3d(0, 0, 0); opacity:1;}}
+@keyframes moveInFromRight {0% {transform: translate3d(110%, 0, 0); opacity:0;} 100% {transform: translate3d(0, 0, 0); opacity:1;}}
+@-webkit-keyframes moveInFromRight {0% {-webkit-transform: translate3d(110%, 0, 0); opacity:0;} 100% {-webkit-transform: translate3d(0, 0, 0); opacity:1;}}
+
+/*
+.pccPageListItem * {
+    -ms-touch-action: pinch-zoom pan-x pan-y;
+    touch-action: pinch-zoom pan-x pan-y;
+} */
+
+.pccPageListItem .pccPageListItemLoading {margin:30% auto;display:block;filter:Alpha(Opacity=50);background-color:#fff}
+.pccPageListItem .pccPageLoadFail {margin:35% auto;text-align:center;line-height:2;color:#777;}
+
+/* PageList container fix */
+.pccPageListItem .igAnchor,
+.pccPageListItem .igViewerScroller,
+.pccPageListItem .igViewerGraphics,
+.pccThumbnailView .igAnchor {
+    /* never recalculate these values */
+    width: 100% !important;
+    height: 100% !important;
+}
+.igAnchor > svg{ 
+    width: 100%; 
+    height: 100%;
+}
+.igMagnifierFrame .igAnchor > svg { width: auto; height: auto; }
+.igViewerScroller,
+.igViewerGraphics,
+.igAnchor,
+.igAnchor > svg,
+.igAnchor svg svg {
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+}
+.igAnchor svg svg use { pointer-events: none; }
+
+/* do not show textarea outline on text marks */
+.pccViewerControl textarea {outline:none;}
+
+/* copy text */
+.pccCopyText {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:0;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    opacity:0;
+    filter:alpha(opacity=0);
+    color: #000;
+}
+
+/* about modal */
+.pccPageListAboutModal {background:#383a3f;position:absolute;top:-300px;left:0;right:0;
+    margin:0 auto;width:280px;padding:10px;visibility:hidden;opacity:0;z-index:5;border-radius:3px;
+    text-align:center;
+    -webkit-box-shadow:0 2px 4px -1px rgba(0, 0, 0, .4);
+            box-shadow:0 2px 4px -1px rgba(0, 0, 0, .4);
+    -webkit-transition:all 400ms;
+            transition:all 400ms}
+.pccPageListAboutModal * {text-align:left;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%;
+            text-size-adjust:100%}
+.pccPageListAboutModal h3 {margin:10px 0;font-size:18px;color:#fff;font-weight:bold}
+.pccPageListAboutModal p {font-size:12px;color:#c2c5ce}
+.pccPageListAboutModal p:last-child {color:#c2c5ce}
+.pccPageListAboutModal a {color:#afc3eb}
+html .pccPageListAboutModal button {position:absolute;top:0;right:0;font-size:20px;color:#fff;
+    background:none;border:none;-webkit-box-shadow:none;box-shadow:none;height:auto}
+.pccPageListAboutModal.open {visibility:visible;opacity:1;top:122px}
+
+.pccEditMarkButton {
+    display: inline-block;
+    background: no-repeat url(../img/EditTextMark.png);
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    height: 26px;
+    width: 26px;
+    -webkit-background-size: 26px 26px;
+            background-size: 26px;
+    cursor: pointer !important;
+}
+
+/* svg elements can have body tags inside them, so we protect styling of them */
+/* viewer marks that do not look correct can likely be affected by conflicting styles */
+.pccViewerControl body {
+    background-color: initial;
+    min-height: initial;
+	position: static;
+}
+
+/* style for thumbnail views */
+.pccThumbnailWrapper {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 5px 0 2em 0;
+}
+.pccThumbnail {
+    width: 100%;
+    height: 100%;
+}
+.pccThumbnailView {
+    /* it's important not to edit these width and height
+     * they are depended upon in the actual size calculation */
+    height: 100%;
+    width: 100%;
+    margin: auto !important;
+}
+.pccThumbnailLabel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* mark selection handles */
+.pccMarkHandleTopLeft,
+.pccMarkHandleTopCenter,
+.pccMarkHandleTopRight,
+.pccMarkHandleMidLeft,
+.pccMarkHandleMidRight,
+.pccMarkHandleBottomLeft,
+.pccMarkHandleBottomCenter,
+.pccMarkHandleBottomRight,
+.pccMarkHandlePoint,
+.pccMarkHandleTextSelectionStart,
+.pccMarkHandleTextSelectionEnd {
+    position: absolute;
+	width: 40px;
+	height: 40px;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkMmJhOTYxOS02NDJjLTQzOTUtYTI2Mi1iZTQ5NzM5MDEzYjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDQ3M0M1RkFDMUM2MTFFNDlBMzZFODY3RUQwOTI4QjgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDQ3M0M1RjlDMUM2MTFFNDlBMzZFODY3RUQwOTI4QjgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowYzJmZjg5Ny1iMWRmLTQ4MGItOGRlNy01N2VkNGE0ZjJmZDgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ZDJiYTk2MTktNjQyYy00Mzk1LWEyNjItYmU0OTczOTAxM2IxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SvzVDQAAAn9JREFUeNrsWMFr01AcTvvSNsnG1jQqOIeTTQ/z4EA9WFQQPYpn0epFL/4DiiBMFATRf0AvXtSJdwU9bHhY3UlBQQdThxVRUNN2wzVd26R+v/ILVA9r0iVQWR58zXuP9/3yNXnv9/tIrNlsSr3c4lKPt0hgJDASGAn8jwTKgAEMSAEHXU/TgRPAQWC0LV4dWADywDOg1O0NYn5K3ZEbc63riytZevKngTNAqgNtFXgATIHvMD+8J4jgGi7XgP3uXKVmi/xCMf3ll6XKIt4czihWdpe+pCWFzX/gPDAB7lWIrIT2BHnP3gb20qC0Uk/cnSmMTL8zh+q289d+Toi4c3S38e3CsZGC3peo8/Rr4CLghCXwLHCOOp9+VNRLj+YnzN81ZS2C0Z+s3jo1/mZsi2bx1D3gfhinOAPk+MnJlx/P7+kkjhqtobXE4akcxwpc4HH3QNyZLuz4uVxTvRJpLXF4mOJYgQs8RD/LVkOeeW8O+T1c4GxdWbUFDw8HLVDmPCfNfSyl/z0QXho44uWHYpqHo14ziNcbDboBv5qWInXZKA1xV3DMjVOLl4AGdYYNtdrtzbZvUt1UY3PMwASSuEXqHBjTy5SE/YoDx87u1Ms8XHT/cJCvON/ajJrcoArhVyA43/sV2ebhbBhp5gkXfonK1+aBpOWVSGvB+dxmHp6GIbAIPGx5LNTWmyfH31IZ60SiNbQWHPeVUgxzY5oF8oNst64D+9x5qhCzsFvIkRrslrMto1TpQPSlhN1GfwVMkt3y4we7NayCDWvOo2GdolcLvu3XsMbW+fHI4MK/luV/zvs3fMvvoV4PchIuBxU0Fn1+iwRGAiOBkcDebn8EGACEVf6TPnvOjAAAAABJRU5ErkJggg==);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 2dppx),
+       screen and (min-resolution: 192dpi) {
+    .pccMarkHandleTopLeft, 
+    .pccMarkHandleTopCenter, 
+    .pccMarkHandleTopRight, 
+    .pccMarkHandleMidLeft, 
+    .pccMarkHandleMidRight, 
+    .pccMarkHandleBottomLeft, 
+    .pccMarkHandleBottomCenter, 
+    .pccMarkHandleBottomRight, 
+    .pccMarkHandlePoint, 
+    .pccMarkHandleTextSelectionStart, 
+    .pccMarkHandleTextSelectionEnd {
+        -webkit-background-size: 40px 40px;
+                background-size: 40px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGsAAABrCAYAAABwv3wMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkMmJhOTYxOS02NDJjLTQzOTUtYTI2Mi1iZTQ5NzM5MDEzYjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0QwNDg4NENDNDAzMTFFNDgxM0JDREZDMUY0RTFFODIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0QwNDg4NEJDNDAzMTFFNDgxM0JDREZDMUY0RTFFODIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MjI3ZGMxZS0xNjg1LTQ2YTktOTI5Mi0wYzNkMTM4YjU3MWMiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo2YWNjOTM4MC0wYzZkLTExNzgtYmZj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);
+    }
+}
+
+.pccv input.no-ms-clear::-ms-clear {
+    display: none;
+}
+
+.pcc-image-stamp-img {
+    height: auto;
+    max-height: available;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
