@@ -1,4 +1,4 @@
-﻿<%
+<%
 //----------------------------------------------------------------------
 // <copyright file="Default.aspx" company="Accusoft Corporation">
 // Copyright© 1996-2014 Accusoft Corporation.  All rights reserved.
@@ -9,9 +9,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>PCC .NET C# Sample Home</title>
-        <link href="http://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="sample-assets/css/splash.css" type="text/css" />
         <link rel="stylesheet" href="sample-assets/css/fontello.css" type="text/css" />
         <meta charset="utf-8">
@@ -60,9 +61,11 @@
             </div>
         </div>
         <div class="choose-document">
-            <div class="container">
-                <h3>select a document</h3>
+            <h3>select a document</h3>
+            <div class="instructions">       
                 <p><em>Choose a document to load in the viewer from the list or drag one from your desktop in the drop zone below.</em></p>
+            </div>
+            <div class="container">
                 <ul class="document-list">
                     <li><a data-document="WordDemoSample.doc">Word Document</a></li>
                     <li><a data-document="PdfDemoSample.pdf">PDF Document</a></li>

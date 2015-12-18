@@ -4,7 +4,7 @@
 </div>
 <div class="pcc-pull-left" data-pcc-toggle-id="context-menu-options"<% if (menuOptions.collapseLeftSide === true) { %> style="width:auto"<% } %>>
 
-     <div class="pcc-tabset">
+    <div class="pcc-tabset">
 
         <% if (menuOptions.showTabArea === true) { %>
         <div class="pcc-tabs">
@@ -73,15 +73,19 @@
                 <span class="pcc-icon pcc-icon-image-stamp"></span>    
             </div>
             <% } %>
+
+            <% if (menuOptions.showLinkStylesTab === true) { %>
+            <div data-pcc-toggle="context-menu-tab1">
+                <span class="pcc-icon pcc-icon-annotate-rectangle-filled"></span>   
+            </div>
+            <% } %>
         </div>
         <% } %>
 
         <% if (showAllEditControls) { %>
             <div class="pcc-pull-right">
-                <button data-pcc-delete-mark class="pcc-icon pcc-icon-delete" title="<%= deleteMarks %>"></button>
-                <% if (menuOptions.showTabArea) { %>
-                    </br><button data-pcc-add-comment-context-menu class="pcc-icon pcc-icon-comment" title="<%= addComment %>"></button>
-                <% } %>
+                <button data-pcc-delete-mark class="pcc-icon pcc-icon-delete" title="<%= deleteMarks %>"></button></br>
+                <button data-pcc-add-comment-context-menu class="pcc-icon pcc-icon-comment" title="<%= addComment %>"></button>
             </div>
         <% } %>
         
@@ -294,44 +298,46 @@
                 </div>
                 <% } %>
 
-                <div class="pcc-select pcc-select-font" data-pcc-font-name data-pcc-toggle="dropdown-font" title="<%= selectFont %>">
-                    <div class="pcc-label"><%= mark.getFontName ? mark.getFontName() : '' %></div>
-                    <div class="pcc-arrow-down"></div>
-                    <div data-pcc-toggle-id="dropdown-font" class="pcc-dropdown">
-                        <div><%= fontArial %></div>
-                        <div><%= fontComicSans %></div>
-                        <div><%= fontCourier %></div>
-                        <div><%= fontCourierNew %></div>
-                        <div><%= fontGeneva %></div>
-                        <div><%= fontGeorgia %></div>
-                        <div><%= fontHelvetica %></div>
-                        <div><%= fontTimes %></div>
-                        <div><%= fontTimesNewRoman %></div>
-                        <div><%= fontVerdana %></div>
+                <% if (mark.getType() !== 'RectangleRedaction') { %>
+                    <div class="pcc-select pcc-select-font" data-pcc-font-name data-pcc-toggle="dropdown-font" title="<%= selectFont %>">
+                        <div class="pcc-label"><%= mark.getFontName ? mark.getFontName() : '' %></div>
+                        <div class="pcc-arrow-down"></div>
+                        <div data-pcc-toggle-id="dropdown-font" class="pcc-dropdown">
+                            <div><%= fontArial %></div>
+                            <div><%= fontComicSans %></div>
+                            <div><%= fontCourier %></div>
+                            <div><%= fontCourierNew %></div>
+                            <div><%= fontGeneva %></div>
+                            <div><%= fontGeorgia %></div>
+                            <div><%= fontHelvetica %></div>
+                            <div><%= fontTimes %></div>
+                            <div><%= fontTimesNewRoman %></div>
+                            <div><%= fontVerdana %></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="pcc-select pcc-select-font-size" data-pcc-font-size data-pcc-toggle="dropdown-font-size" title="<%= fontSize %>">
-                    <div class="pcc-label"><%= mark.getFontSize ? mark.getFontSize() : '' %></div>
-                    <div class="pcc-arrow-down"></div>
-                    <div data-pcc-toggle-id="dropdown-font-size" class="pcc-dropdown">
-                        <div>8</div>
-                        <div>9</div>
-                        <div>10</div>
-                        <div>11</div>
-                        <div>12</div>
-                        <div>14</div>
-                        <div>16</div>
-                        <div>20</div>
-                        <div>22</div>
-                        <div>24</div>
-                        <div>26</div>
-                        <div>28</div>
-                        <div>36</div>
-                        <div>48</div>
-                        <div>72</div>
+                    <div class="pcc-select pcc-select-font-size" data-pcc-font-size data-pcc-toggle="dropdown-font-size" title="<%= fontSize %>">
+                        <div class="pcc-label"><%= mark.getFontSize ? mark.getFontSize() : '' %></div>
+                        <div class="pcc-arrow-down"></div>
+                        <div data-pcc-toggle-id="dropdown-font-size" class="pcc-dropdown">
+                            <div>8</div>
+                            <div>9</div>
+                            <div>10</div>
+                            <div>11</div>
+                            <div>12</div>
+                            <div>14</div>
+                            <div>16</div>
+                            <div>20</div>
+                            <div>22</div>
+                            <div>24</div>
+                            <div>26</div>
+                            <div>28</div>
+                            <div>36</div>
+                            <div>48</div>
+                            <div>72</div>
+                        </div>
                     </div>
-                </div>
+                <% } %>
             </div>
         </div>
 
@@ -363,4 +369,12 @@
         </div>
         <% } %>
     </div>
+
+    <% if (mark.getType().match(/annotation/i)) { %>
+    <div class="pcc-row">
+        <div data-pcc-checkbox="includeInBurnedDocument" class="pcc-checkbox<% if (mark.getData('Accusoft-burnAnnotation')) { %> pcc-checked<% } %>">
+            <span></span><label><%= includeInBurnedDocument %></label>
+        </div>
+    </div>
+    <% } %>
 </div>

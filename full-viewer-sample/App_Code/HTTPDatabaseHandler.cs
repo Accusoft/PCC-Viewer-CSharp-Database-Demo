@@ -1,4 +1,4 @@
-﻿namespace PccViewer.WebTier.Core
+﻿namespace Pcc
 {
     using System;
     using System.Net;
@@ -20,7 +20,7 @@
         public override void ProcessRequest(HttpContext context, Match match)
         {
             // Environmental Setup
-            PccConfig.LoadConfig("viewer-webtier/pcc.config");
+            //PccConfig.LoadConfig("viewer-webtier/pcc.config");
 
             // find the request method
             string method = context.Request.RequestType.ToLower();
@@ -56,21 +56,21 @@
             }
             else
             {
-                sendResponse(context, (int)HttpStatusCode.BadRequest, "No username defined.");
+                sendResponse(context, (int)HttpStatusCode.BadRequest, "No username defined. 1");
                 return;
             }
 
             // Final check to make sure we have a useable user name.
             if (userName == string.Empty)
             {
-                sendResponse(context, (int)HttpStatusCode.BadRequest, "No username defined.");
+                sendResponse(context, (int)HttpStatusCode.BadRequest, "No username defined. 2");
                 return;
             }
 
             // Perform an HTTP GET request to retrieve properties about the viewing session from PCCIS. 
             // The properties will include an identifier of the source document that will be used below
             // to construct the name of file where markups are stored.
-            string uriString = PccConfig.ImagingService + "/ViewingSession/u" + viewingSessionId;
+            string uriString = PccConfig.WebServiceAddress + "/ViewingSession/" + viewingSessionId;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uriString);
             request.Method = "GET";
             string responseBody = null;
@@ -86,30 +86,30 @@
             }
             catch (Exception e)
             {
-                sendResponse(context, (int)HttpStatusCode.BadGateway, "Bad Gateway - Invalid viewing session");
+                sendResponse(context, (int)HttpStatusCode.BadGateway, "Bad or expired Viewing Session");
                 return;
             }
 
             ViewingSessionProperties viewingSessionProperties = serializer.Deserialize<ViewingSessionProperties>(responseBody);
-            string externalId = string.Empty;
-            viewingSessionProperties.origin.TryGetValue("documentMarkupId", out externalId);
+            string documentMarkupId = string.Empty;
+            viewingSessionProperties.origin.TryGetValue("documentMarkupId", out documentMarkupId);
 
-            if (!String.IsNullOrEmpty(externalId))
+            if (!String.IsNullOrEmpty(documentMarkupId))
             {
                 if (method == "post")
                 {
                     // Post is used to update an existin annotation or insert a new one.
-                    upsertAnnotation(context, externalId, userName);
+                    upsertAnnotation(context, documentMarkupId, userName);
                 }
                 else if (method == "get")
                 {
                     // Get is used to retrieve an annotation 
-                    selectAnnotaion(context, externalId, userName);
+                    selectAnnotaion(context, documentMarkupId, userName);
                 }
             }
             else
             {
-                // Return an error if externalId is not present
+                // Return an error if the documentMarkupId is not present
                 // This means that there was a problem with the response from PCCIS
                 sendResponse(context, (int)HttpStatusCode.BadGateway, "Bad Gateway");
                 return;
@@ -131,7 +131,7 @@
                 var document = dbContext.Documents
                     .Where(d => d.ExternalId == externalId)
                     .FirstOrDefault();
-                
+
                 if (document != null)
                 {
                     // Document exists
@@ -313,5 +313,5 @@
         {
             return serializer.Serialize(obj);
         }
-    } 
+    }
 }

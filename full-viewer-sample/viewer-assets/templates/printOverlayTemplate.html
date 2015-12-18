@@ -79,11 +79,14 @@
                     </select>
                 </div>
             </div>
-            <div class="pcc-row">
-                <div data-pcc-checkbox="printMargins" class="pcc-checkbox">
-                    <span></span><label><%= printAutoFitMargins %></label>
+            <% if (!canPrintMarks) { %>
+                <div class="pcc-row">
+                    <div data-pcc-checkbox="printMargins" class="pcc-checkbox pcc-checked">
+                        <span></span><label><%= printAutoFitMargins %></label>
+                    </div>
                 </div>
-            </div>
+            <% } %>
+
         </div>
     </div>
 
@@ -117,6 +120,11 @@
         </div>
 
         <div class="pcc-col-6">
+            <div class="pcc-row">
+                <div data-pcc-checkbox="printMargins" class="pcc-checkbox pcc-checked">
+                    <span></span><label><%= printAutoFitMargins %></label>
+                </div>
+            </div>
             <div class="pcc-print-comments pcc-row">
                 <div class="pcc-row">
                     <h4><%= printComments %></h4>

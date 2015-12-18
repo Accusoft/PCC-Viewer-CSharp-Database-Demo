@@ -7,7 +7,7 @@
         <div class="pcc-tab-pane">
             <div class="pcc-pull-right">
                 <button class="pcc-icon pcc-icon-print" title="<%= printButton %>" data-pcc-print="launch" data-pcc-removable-id="printing"></button>
-                <button data-pcc-download data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
+                <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
             </div>
             <div class="pcc-left">
                 <button data-pcc-toggle="dialog-thumbnails" class="pcc-icon pcc-icon-thumbnails" title="<%= thumbnails %>"></button>
@@ -15,6 +15,11 @@
                 <button data-pcc-mouse-tool="AccusoftSelectToZoom" class="pcc-icon pcc-icon-rectanglezoomtool" title="<%= rectangleZoom %>"></button>
                 <button data-pcc-rotate-document class="pcc-icon pcc-icon-rotate-doc-cw" title="<%= rotateDocument %>"></button>
                 <button data-pcc-rotate-page class="pcc-icon pcc-icon-rotate-page-cw" title="<%= rotatePage %>"></button>
+            </div>
+        </div>
+        <div class="pcc-tab-preview">
+            <div class="pcc-center">
+                <button data-pcc-end-preview><%= previewEnd %></button>
             </div>
         </div>
     </div>
@@ -31,6 +36,9 @@
                     <input type="text" data-pcc-search="input" placeholder="<%= searchDocument %>"
                         autocorrect="off" autocapitalize="off">
                     <button title="<%= clearSearch %>" data-pcc-search="clear" class="pcc-close">&#215;</button>
+                    <button title="<%= fixedSearchTerms %>" data-pcc-toggle="dropdown-search-fixed-box" class="pcc-search-fixed pcc-hide">
+                        <span class="pcc-icon pcc-icon-pushpin pcc-search-fixed-icon"></span>
+                    </button>
                 </div>
                 <div class="pcc-search-group pcc-search-group-buttons">
                     <button data-pcc-search="submit" title="<%= search %>">
@@ -61,28 +69,37 @@
                 <div class="pcc-toolbar" data-pcc-search="toggleAllPresets"><span>&#x2714;</span> <%= toggleAll %></div>
                 <div class="pcc-predefined-search" data-pcc-predefined-search></div>
             </div>
+                    
+            <div class="pcc-dropdown pcc-dropdown-search-box" data-pcc-toggle-id="dropdown-search-fixed-box">
+                <div class="pcc-toolbar"><%= fixedSearchTerms %></div>
+                <div class="pcc-predefined-search" data-pcc-predefined-fixed-search></div>
+            </div>
         </div>
     </div>
 
     <div class="pcc-tab" data-pcc-nav-tab="annotate" data-pcc-removable-id="annotateTab">
         <div class="pcc-tab-item"><span class="pcc-icon pcc-icon-annotate"></span> <%= annotateLabel %></div>
         <div class="pcc-tab-pane pcc-tab-advanced">
-            <div class="pcc-pull-right"><button class="pcc-icon pcc-icon-save pcc-js-postToDB" title="Post to DB"></button>
-            <button class="pcc-icon pcc-icon-load pcc-js-loadFromDB" title="Load from DB"></button>
-            
-            <!--
-                <!-- Original Save/Load Markup buttons
-            
-            <button data-pcc-toggle="dialog-save-annotations" class="pcc-icon pcc-icon-save" title="<%= saveAnnotations %>"></button>
-            <button data-pcc-lock-editable-layer data-pcc-toggle="dialog-load-annotations" class="pcc-icon pcc-icon-load" title="<%= loadAnnotations %>"></button>
-            -->
+            <div class="pcc-pull-right">
 
-                <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
-            </div>
+                    <button class="pcc-icon pcc-icon-save pcc-js-postToDB" title="Post to DB"></button>
+                    <button class="pcc-icon pcc-icon-load pcc-js-loadFromDB" title="Load from DB"></button>
+
+                    <!--
+                        <!-- Original Save/Load Markup buttons
+
+                    <button data-pcc-toggle="dialog-save-annotations" class="pcc-icon pcc-icon-save" title="<%= saveAnnotations %>"></button>
+                    <button data-pcc-lock-editable-layer data-pcc-toggle="dialog-load-annotations" class="pcc-icon pcc-icon-load" title="<%= loadAnnotations %>"></button>
+                    -->
+
+                    <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
+                    <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
+                </div>
             <div class="pcc-left">
 
                 <% if (annotationsMode === "LayeredAnnotations") { %>
                 <button data-pcc-toggle="dialog-annotation-layer-review" class="pcc-icon pcc-icon-list" title="<%= annotationLayerReview.annotationLayers %>"></button>
+                <span class="pcc-separator"></span>
                 <% } %>
                 
                 <button data-pcc-mouse-tool="AccusoftArrowAnnotation" data-pcc-default-fill-color="#0000ff"
@@ -103,23 +120,26 @@
                 <button data-pcc-toggle="more-annotation-tools" class="pcc-icon pcc-icon-triangle-down pcc-mobile-overflow-trigger" title="<%= moreTools %>"></button>
                 
                 <div class="pcc-more-annotation-tools pcc-mobile-overflow" data-pcc-toggle-id="more-annotation-tools">
+                    <button data-pcc-mouse-tool="AccusoftPolylineAnnotation" data-pcc-default-fill-color="#000000" data-pcc-context-menu="true"
+                        class="pcc-icon pcc-icon-annotate-polyline" title="<%= polylineAnnotation %>"></button>
+                    
                 <button data-pcc-mouse-tool="AccusoftTextAnnotation" data-pcc-default-fill-color="#ffffff"
                     class="pcc-icon pcc-icon-annotate-text" title="<%= textAnnotation %>"></button>
                     
                 <button data-pcc-mouse-tool="AccusoftHighlightAnnotation" data-pcc-default-fill-color="#ffff00"
                     class="pcc-icon pcc-icon-highlight" title="<%= highlightAnnotation %>"></button>
 
+                <button data-pcc-mouse-tool="AccusoftStrikethroughAnnotation" class="pcc-icon pcc-icon-text-strikeout" title="<%= strikethroughAnnotation %>"></button>
+
                 <button data-pcc-mouse-tool="AccusoftTextHyperlinkAnnotation"
                         class="pcc-icon pcc-icon-link" title="<%= textHyperlinkAnnotation %>"></button>
 
-                <button data-pcc-mouse-tool="AccusoftStampAnnotation" data-pcc-default-fill-color="#ff0000"
+                <button data-pcc-mouse-tool="AccusoftStampAnnotation" data-pcc-default-fill-color="#ff0000" data-pcc-default-label="<%= stampLabelApproved %>"
                     class="pcc-icon pcc-icon-annotate-stamp" title="<%= stampAnnotation %>"></button>
                     
                     <button data-pcc-mouse-tool="AccusoftImageStampAnnotation" data-pcc-context-menu="true" 
                     class="pcc-icon pcc-icon-image-stamp" title="<%= imageStampAnnotion %>" disabled></button>
                 
-                <button data-pcc-mouse-tool="AccusoftPolylineAnnotation" data-pcc-default-fill-color="#000000" data-pcc-context-menu="true"
-                    class="pcc-icon pcc-icon-annotate-polyline" title="<%= polylineAnnotation %>"></button>
                 </div>
             </div>
         </div>
@@ -132,33 +152,24 @@
                 <button data-pcc-toggle="dialog-save-annotations" class="pcc-icon pcc-icon-save" title="<%= saveAnnotations %>"></button>
                 <button data-pcc-lock-editable-layer data-pcc-toggle="dialog-load-annotations" class="pcc-icon pcc-icon-load" title="<%= loadAnnotations %>"></button>
                 <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
-                <button data-pcc-download data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
+                <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
             </div>
             <div class="pcc-left">
                 <% if (annotationsMode === "LayeredAnnotations") { %>
                 <button data-pcc-toggle="dialog-annotation-layer-review" class="pcc-icon pcc-icon-list" title="<%= annotationLayerReview.annotationLayers %>"></button>
+                <span class="pcc-separator"></span>
                 <% } %>
                 
                 <button data-pcc-mouse-tool="AccusoftRectangleRedaction" data-pcc-default-fill-color="#000000"
                     class="pcc-icon pcc-icon-redact-rectangle" title="<%= rectangleRedaction %>"></button>
 
-                <button data-pcc-mouse-tool="AccusoftTransparentRectangleRedaction" data-pcc-default-fill-color="#000000"
-                    class="pcc-icon pcc-icon-redact-transparent" title="<%= transparentRedaction %>"></button>
-
-                <button data-pcc-mouse-tool="AccusoftTextRedaction" data-pcc-default-fill-color="#000000"
-                    class="pcc-icon pcc-icon-redact-text" title="<%= textRedaction %>"></button>
-                    
                 <button data-pcc-mouse-tool="AccusoftTextSelectionRedaction" data-pcc-default-fill-color="#000000"
                     class="pcc-icon pcc-icon-redact-textselection" title="<%= textSelectionRedaction %>"></button>
 
-                <button data-pcc-mouse-tool="AccusoftStampRedaction" data-pcc-default-fill-color="#000000"
-                    class="pcc-icon pcc-icon-redact-stamp" title="<%= stampRedaction %>"></button>
-                    
-                <button data-pcc-mouse-tool="AccusoftImageStampRedaction" data-pcc-context-menu="true" 
-                    class="pcc-icon pcc-icon-image-stamp" title="<%= imageStampRedaction %>" disabled></button>
-
                 <button class="pcc-icon pcc-icon-redact" title="<%= pageRedactionButton %>" data-pcc-page-redaction="launch"></button>
-                <span class="pcc-separator" ></span>
+                    
+                <span class="pcc-separator"></span>
+
                 <button data-pcc-redactionViewMode class="pcc-icon pcc-icon-redactionViewMode" title="<%= redactionViewMode %>"> </button>
             </div>
         </div>
@@ -169,7 +180,7 @@
         <div class="pcc-tab-pane">
             <div class="pcc-pull-right">
                 <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
-                <button data-pcc-download data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
+                <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
             </div>
             <div class="pcc-left">
                 <button class="pcc-icon pcc-icon-list" title="<%= esignManage %>" data-pcc-esign="manage"></button>
@@ -177,9 +188,6 @@
                 <button class="pcc-icon pcc-icon-textSign" title="<%= esignText %>" data-pcc-esign="textLaunch"></button>
                 <button class="pcc-icon pcc-icon-place pcc-disabled" title="<%= esignPlaceSignature %>" data-pcc-mouse-tool="AccusoftPlaceSignature" data-pcc-esign="place" disabled></button>
                 <button class="pcc-icon pcc-icon-datestamp" title="<%= esignPlaceDateSignature %>" data-pcc-mouse-tool="AccusoftPlaceDateSignature" data-pcc-esign="placeDate"></button>
-
-                <button data-pcc-mouse-tool="AccusoftTextInputSignature"
-                        class="pcc-icon pcc-icon-text-input-sign" title="<%= textInputSignature %>"></button>
             </div>
         </div>
     </div>
@@ -232,6 +240,62 @@
     <div class="pcc-drag-handle" data-pcc-drag-handle></div>
 </div>
 
+<div class="pcc-dialog pcc-dialog-download" data-pcc-toggle-id="dialog-download">
+    <div class="pcc-row">
+        <h4><%= fileDownloadAs %></h4>
+    </div>
+    <div class="pcc-row">
+        <div class="pcc-select pcc-select-download" data-pcc-toggle="dropdown-download">
+            <div class="pcc-label"><%= fileDownloadOriginalDocument %></div>
+            <div class="pcc-arrow-down"></div>
+            <div data-pcc-toggle-id="dropdown-download" class="pcc-dropdown">
+                <% _.forEach(downloadFormats, function(downloadFormat, index) { %>
+                <div class="<%= (index % 2 === 0) ? 'even' : 'odd' %>"><%= downloadFormat %></div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    <div class="pcc-row">
+        <h4><%= fileDownloadInclude %></h4>
+    </div>
+    <div class="pcc-row">
+        <div class="pcc-col-6">
+            <div data-pcc-checkbox="burnMarks" data-pcc-download-annotations data-pcc-esign-save="true" class="pcc-checkbox pcc-disabled">
+                <span></span><label><%= fileDownloadAnnotations %></label>
+            </div>
+        </div>
+        <div class="pcc-col-6">
+            <div data-pcc-toggle="dropdown-download-annotations-format" class="pcc-select pcc-disabled">
+                <div class="pcc-label"><%= fileDownloadAllAnnotations %></div>
+                <div class="pcc-arrow-down"></div>
+                <div data-pcc-toggle-id="dropdown-download-annotations-format" class="pcc-dropdown">
+                    <% _.forEach(annotationFormats, function(annotationFormat, index) { %>
+                    <div class="<%= (index % 2 === 0) ? 'even' : 'odd' %>"><%= annotationFormat %></div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <div class="pcc-row">
+        <div data-pcc-checkbox="burnMarks" data-pcc-download-redactions data-pcc-esign-save="true" class="pcc-checkbox pcc-disabled">
+            <span></span><label><%= fileDownloadRedactions %></label>
+        </div>
+    </div>
+    <div class="pcc-row">
+        <div data-pcc-checkbox="burnMarks" data-pcc-download-esignatures data-pcc-esign-save="true" class="pcc-checkbox pcc-disabled">
+            <span></span><label><%= fileDownloadESignature %></label>
+        </div>
+    </div>
+    <div class="pcc-row">
+        <div class="pcc-col-6">
+            <button data-pcc-download="preview"><%= preview %></button>
+        </div>
+        <div class="pcc-col-6">
+            <button data-pcc-download="download"><%= download %></button>
+        </div>
+    </div>
+</div>
+        
 <div class="pcc-dialog pcc-dialog-search" data-pcc-toggle-id="dialog-search">
     <div class="pcc-dialog-wrapper">
         <div class="pcc-search-header pcc-clear">
@@ -289,6 +353,12 @@
                 <button class="pcc-icon pcc-icon-redact-pen pcc-active" data-pcc-search-in="redactions" title="<%= searchFilters.searchInRedactions %>"></button>
                 <button class="pcc-icon pcc-icon-esign pcc-active" data-pcc-search-in="signatures" title="<%= searchFilters.searchInSignatures %>"></button>
             </div>
+            
+            <div class="pcc-section pcc-expand pcc-hide" data-pcc-section="searchFixedTerms">
+                <div class="pcc-section-title"><%= searchFilters.fixedSearchTerms %></div>
+                <div class="pcc-section-content"><%= searchFilters.noTerms %></div>
+            </div>
+            
             <div class="pcc-section pcc-expand" data-pcc-section="searchTerms">
                 <div class="pcc-section-title"><%= searchFilters.searchTerms %></div>
                 <div class="pcc-section-content"><%= searchFilters.noTerms %></div>

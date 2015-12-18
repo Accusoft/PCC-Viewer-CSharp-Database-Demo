@@ -1,20 +1,25 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-<%@ Import Namespace="PccViewer.WebTier.Core" %>
-<%        
+<%@ Import Namespace="Pcc" %>
+<%
     // Create a ViewingSession based on the document defined in the query parameter
     // Example: ?document=sample.doc
-    string viewingSessionId = string.Empty;
+    var viewingSessionId = Request.QueryString["viewingSessionId"];
 
-    string documentQueryParameter = Request.QueryString["document"];
-    string originalDocumentName = documentQueryParameter;
+    var documentQueryParameter = Request.QueryString["document"];
+    var originalDocumentName = string.Empty;
 
-    if (documentQueryParameter == null)
-    {
+    if (string.IsNullOrEmpty(documentQueryParameter)){
         originalDocumentName = "PdfDemoSample.pdf";
     }
+    else{
+        originalDocumentName = documentQueryParameter;
+    }
 
-    CreateSession createSession = new CreateSession();
-    viewingSessionId = createSession.fromDocumentName(originalDocumentName);
+
+    if (string.IsNullOrEmpty(viewingSessionId)) {
+
+        viewingSessionId = PrizmApplicationServices.CreateSessionFromDocument(originalDocumentName);
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -40,8 +45,8 @@
         <script src="viewer-assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script src="//pcc-assets.accusoft.com/v10.3/js/viewercontrol.js"></script>
-    <script src="//pcc-assets.accusoft.com/v10.3/js/viewer.js"></script>
+    <script src="//pcc-assets.accusoft.com/v10.5/js/viewercontrol.js"></script>
+    <script src="//pcc-assets.accusoft.com/v10.5/js/viewer.js"></script>
 </head>
 <body>
     <div id="viewer1"></div>
@@ -114,6 +119,8 @@
                         .fail(requestAttachments);
                 }
             }
+
+            requestAttachments();
         }
         
         $(document).ready(function () {
@@ -130,8 +137,7 @@
                 $.ajax({
                     method: method,
                     contentType: "application/json",
-                    url: "viewer-webtier/pcc.ashx/DbDemo/q?DocumentID=u" + pluginOptions.documentID,
-                    headers: {"username" : name},
+                    url: "viewer-webtier/pcc.ashx/DbDemo/q?DocumentID=u" + pluginOptions.documentID + "&username=" + userName,
                     data: data
                 }).done(function(){
                     console.log(arguments);

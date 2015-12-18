@@ -16,7 +16,9 @@ Each solution will need to answer its own questions regarding how the data gener
 ## Setup
 
 
-1. Open and the included .SLN file in Visual Studio.
+1. Open and the included .SLN (found in full-viewer-sample) file in Visual Studio.
+
+Please note that this sample has been updated to work with the latest Prizm Content Connect realease. Because of this update, this sample will require a Prizm Application Service installation as well as access to a Prizm Content Connect services installation in order to work as intended.
 
 ### pcc.config
 
@@ -26,7 +28,7 @@ Prior to using the demo, make sure that the default configuration options will w
 
 Selecting the Annotations tab will show that there are two buttons on the top-right side of the viewer. "Post to DB" will collect the current marks on the page, add a user name to all marks, and post them back to the server for database insertion . "Load from DB" will select the annotations that are associated with the current document, per the document's absolute path, and the current user.
 
-The current user is defined in Default.aspx with `databaseUserName`
+The current user is defined in Default.aspx with `userName`
 
 ## Changes from default sample
 
@@ -45,9 +47,9 @@ This addition adds two new buttons to the annotations tab. We’ll use these to 
 
 Two new anonymous jQuery functions were added and bound to the buttons above. You can locate the functions by searching in `full-viewer-sample/index.php` for `postToDB` and `loadFromDB`.
 
-### New file `dbDemo.php`
+### New files
 
-Located in `full-viewer-sample/App_Code`, this page handles requests from the client and the database.
+There are a few new objects located in `full-viewer-sample/App_Code`. `HTTPDatabaseHandler.cs` manages database interactions. The `AnnotationModel.cs` and `DocumentModel.cs` objects serve as the ORM models when creating the database.
 
 ### Entity Framework models
 

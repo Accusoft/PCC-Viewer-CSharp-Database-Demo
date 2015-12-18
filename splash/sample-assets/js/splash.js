@@ -132,7 +132,7 @@ updateSelectedViewer(initialViewer);
         if (window.FormData) {
             var formData = new FormData();
             var files = (evt.dataTransfer) ? evt.dataTransfer.files : evt.target.files;
-            formData.append("theFile", files[0]);
+            formData.append("file", files[0]);
             sendForm(formData, opts);
         }
     }
@@ -171,8 +171,8 @@ updateSelectedViewer(initialViewer);
             //For IE8 you need both. Obnoxious
             form.encoding = form.enctype = "multipart/form-data";
             //create file input element
-            fileDOM.id = "theFile";
-            fileDOM.name = "theFile";
+            fileDOM.id = "file";
+            fileDOM.name = "file";
             //create Upload (form submit) button
             var submit = document.createElement('button');
             submit.value = 'Upload';

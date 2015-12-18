@@ -1,4 +1,4 @@
-﻿namespace PccViewer.WebTier.Core
+﻿namespace Pcc
 {
     using System;
     using System.Collections.Generic;
@@ -32,5 +32,5 @@
             public int DocumentID { get; set; }
             public virtual DocumentModel.Document Document { get; set; }
         }
-    } 
+    }
 }

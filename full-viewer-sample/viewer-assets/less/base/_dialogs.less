@@ -18,8 +18,17 @@
     visibility: hidden;
     z-index: 2;
     .box-shadow(0 1px 4px 1px rgba(0, 0, 0, 0.4));
-    
+
     will-change: margin, width;
+
+    [data-pcc-checkbox] {
+        display: inline;
+    }
+
+    [data-pcc-checkbox].pcc-disabled {
+        color: @font_color_dark;
+        .opacity(50);
+    }
 }
 .pccv .pcc-dialog.pcc-open {
     margin: 0;
@@ -33,9 +42,17 @@
     overflow: auto;
 }
 
-.pccv .pcc-dialog .pcc-row { 
-    float: left; 
+.pccv .pcc-dialog .pcc-row {
+    float: left;
     &.pcc-row-results-header { margin: 0; }
+
+    h4 {
+        margin: 0;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .mobileView({
@@ -47,14 +64,19 @@
         height: 0;
         line-height: 30px;
     }
-    .pccv .pcc-dialog.pcc-dialog-search.pcc-open { 
+    .pccv .pcc-dialog.pcc-dialog-search.pcc-open {
         padding: 0 10px;
         bottom: auto;
     }
     .pccv .pcc-dialog.pcc-open {
         height: auto;
+        
+        &.pcc-download-preview {
+            height: 0;
+            padding: 0;
+        }
     }
-    
+
     .pccv .pcc-dialog-load-annotations,
     .pccv .pcc-dialog-save-annotations {
         line-height: @defaultLineHeight;
