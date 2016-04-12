@@ -128,9 +128,18 @@
                 // Entity Framework does not currently support unique constraints
                 // Check if this document already exists
                 // LINQ will return 0 or the primary key for the current document
-                var document = dbContext.Documents
-                    .Where(d => d.ExternalId == externalId)
-                    .FirstOrDefault();
+                Pcc.DocumentModel.Document document = null;
+                try
+                {
+                    document = dbContext.Documents
+                               .Where(d => d.ExternalId == externalId)
+                               .FirstOrDefault();
+                }
+                catch (Exception)
+                {
+
+                    sendResponse(context, (int)HttpStatusCode.BadGateway, "Failed to connect to database. Please check your conneciton string.");
+                }
 
                 if (document != null)
                 {
@@ -193,9 +202,19 @@
                 // Entity Framework does not currently support unique constraints
                 // Check if this document already exists
                 // LINQ will return 0 or the primary key for the current document
-                var document = dbContext.Documents
-                    .Where(d => d.ExternalId == externalId)
-                    .FirstOrDefault();
+                Pcc.DocumentModel.Document document = null;
+
+                try
+                {
+                    document = dbContext.Documents
+                                .Where(d => d.ExternalId == externalId)
+                                .FirstOrDefault();
+                }
+                catch (Exception e)
+                {
+
+                    sendResponse(context, (int)HttpStatusCode.BadGateway, "Failed to connect to database. Please check your conneciton string.");
+                }
 
                 if (document != null)
                 {

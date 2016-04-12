@@ -14,7 +14,7 @@
         public class AnnotationContext : DbContext
         {
             public AnnotationContext()
-                : base("AnnotationTest1")
+                : base(@"Data Source = (LocalDB)\MSSQLLocalDB; Initial Catalog = PrizmDocAnnotationData; Integrated Security = False;")
             {
             }
             public DbSet<DocumentModel.Document> Documents { get; set; }

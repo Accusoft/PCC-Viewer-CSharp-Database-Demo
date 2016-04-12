@@ -1,14 +1,26 @@
 {
   "name": "ResponsiveViewer",
   "version": "10.0.0",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-less": "~1.0.0",
-    "grunt-cli": "~0.1.13"
+    "gulp": "^3.9.0",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-filter": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-less": "^3.0.5",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svgfallback": "^3.0.2",
+    "jsdoc": "3.3.0-alpha3",
+    "jshint": "~2.5.1",
+    "promises-aplus-tests": "~2.0.4"
   },
   "scripts": {
-    "build": "grunt buildprod"
+    "builddev": "gulp builddev",
+    "build": "gulp buildprod",
+    "watch": "gulp watch",
+    "watchn": "gulp watch -n"
   }
 }

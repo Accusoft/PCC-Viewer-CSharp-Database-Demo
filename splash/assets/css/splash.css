@@ -85,7 +85,7 @@ img {
   max-width: 100%;
 }
 
-.container {
+.container, .instructions {
   margin: 0 auto;
   width: 80%;
 }
@@ -223,6 +223,11 @@ img {
   border-bottom: 1px dotted rgba(233,235,234,.3);
 }
 
+.upload-button{
+  text-align: center;
+  padding: 10px 0;
+}
+
 .drop-zone {
   margin: 15px auto;
   padding: 19px;
@@ -246,7 +251,7 @@ img {
 
 .table-wrapper {
   margin: 15px auto;
-  width: 70%;
+  width: 90%;
 }
 
 .table-header {
@@ -262,11 +267,13 @@ img {
 .table-scroll {
   height: 240px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .template-list {
   width: 100%;
   background-color: #7D807F;
+  table-layout: fixed;
   background-color: rgba(248,248,248,.25);
 }
 
@@ -289,8 +296,22 @@ img {
   border: 1px dotted #f8f8f8;
   border-left: 0;
   border-bottom: 0;
+  word-wrap: normal;
   font-size: 120%;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.template-list td.table-template-name {
+    font-size: 120%;
+    font-weight: normal;
+    text-align: left;
+}
+
+.template-list td.table-button {
+    width: 70px;
 }
 
 .template-list tr:last-of-type th,
@@ -300,7 +321,86 @@ img {
 
 .upload-zone{
   margin-top:10px;
+  clear:both;
 }
+
+/* Begin Dialog Styles */
+.dialog {
+    background: rgba(236, 236, 236, 0.5);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.dialog-container {
+    background: #ffffff;
+    background: rgb(53, 53, 53);
+    bottom: 0;
+    color: #ffffff;
+    height: 96%;
+    left: 0;
+    margin: auto;
+    max-height: 50px;
+    max-width: 480px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    -webkit-transition: max-height 150ms;
+    transition: max-height 150ms;
+    top: 0;
+    width: 96%;
+    box-shadow: 1px 2px 20px 8px #838383;
+}
+
+.pcc-legacy .dialog-container {
+    height: 50px;
+    max-height: none;
+    max-width: none;
+    width: 480px;
+}
+
+.dialog-close-button {
+    background: none !important;
+    padding: 0;
+    position: absolute;
+    right: -1px;
+    font-size: 25px;
+    top: 2px;
+}
+
+.dialog-close-button .pcc-icon {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.dialog-title {
+    margin: 0 0 0.5em;
+}
+
+.dialog-content {
+    padding: 15px;
+    text-align:center
+}
+
+.dialog-content .document-drop {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.dialog-content > select {
+    padding: 3px;
+    font-size: 19px;
+}
+
+.dialog-content .drop-zone {
+    margin-bottom: 0;
+    width: 100%;
+}
+/* End Dialog Styles */
+
 
 @media only screen 
   and (min-width: 1023px) 
@@ -312,12 +412,44 @@ img {
 
 @media only screen 
   and (min-width: 0) 
+  and (max-width: 495px) {
+
+    .template-list tbody td {
+        border-width: 0 0 0 1px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: inline-block;
+        width: 33.333333333%;
+    }
+
+    .template-list tbody td:last-child {
+        border-right-width: 1px;
+    }
+
+    .template-list tbody td.table-template-name {
+        border-width: 1px;
+        display: block;
+        width: 100%;
+        background-color: #494949;
+    }
+
+    .template-list tbody td.table-button {
+        width: 33.33%;
+    }
+}
+
+@media only screen 
+  and (min-width: 0) 
   and (max-width: 1023px) {
-  .branding, .logo {
+  .container, .branding, .logo, .drop-zone  {
     width: 100%;
   }
+  .table-wrapper {
+    width: 95%;
+  }
   .product-name {
-      width: 100%;
+      display:none;
   }
   .branding, .logo, .product-name h1, .title-bar{
     text-align: center;

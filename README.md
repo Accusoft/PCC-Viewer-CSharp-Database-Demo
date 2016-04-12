@@ -1,6 +1,6 @@
-# PCC Viewer CSharp Database Demo
+# PrizmDoc CSharp Database Demo
 
-The following is sample code for demonstrating one possible approach for storing annotations, created by the Prizm Content Connect viewer, in a SQLServer database. 
+The following is sample code for demonstrating one possible approach for storing annotations, created by the PrizmDoc viewer, in a SQLServer database. 
 
 ## Strategy
 
@@ -18,11 +18,15 @@ Each solution will need to answer its own questions regarding how the data gener
 
 1. Open and the included .SLN (found in full-viewer-sample) file in Visual Studio.
 
-Please note that this sample has been updated to work with the latest Prizm Content Connect realease. Because of this update, this sample will require a Prizm Application Service installation as well as access to a Prizm Content Connect services installation in order to work as intended.
+Please note that this sample has been updated to work with the latest PrizmDoc realease. Because of this update, this sample will require a PrizmDoc Application Service installation as well as access to a PrizmDoc Server installation in order to work as intended.
 
 ### pcc.config
 
-Prior to using the demo, make sure that the default configuration options will work for your environment. The folder `/full-viewer-sample/viewer-webtier` contains `pcc.config`.  Update the value of `WebServiceHost` to point to your installation of the Prizm Content Connect services. This file can also be modified to load documents from your directory by changing the value of the `DocumentPath` parameter. 
+Prior to using the demo, make sure that the default configuration options will work for your environment. The folder `/full-viewer-sample/viewer-webtier` contains `pcc.config`.  Update the value of `WebServiceHost` to point to your installation of the PrizmDoc Server. This file can also be modified to load documents from your directory by changing the value of the `DocumentPath` parameter. 
+
+### SQLServer Connection String
+
+For portability, this sample uses Entity Framework 6 and is configured to use the LocalDB service that comes with most installations of Visual Studio. If you do not have LocalDB installed, or wish to use a different SQLServer instance, the database connection string is defined in `full-viewer-sample/App_Code/AnnotationModel.cs`. 
 
 ## Use
 
@@ -59,7 +63,4 @@ This sample code takes the [Code First](https://msdn.microsoft.com/en-us/data/ee
 
 For questions or support please visit our [website](https://www.accusoft.com/support/) or contact our Support team directly at support@accusoft.com.
 
-For purchasing information please visit the [Prizm Content Connect](https://www.accusoft.com/products/prizm-content-connect-pcc/overview/) main page or contact our Sales team directly at sales@accusoft.com
-
-
-
+For purchasing information please visit the [PrizmDoc](https://www.accusoft.com/products/prizm-content-connect-pcc/overview/) main page or contact our Sales team directly at sales@accusoft.com

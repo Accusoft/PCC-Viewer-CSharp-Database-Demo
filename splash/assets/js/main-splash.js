@@ -14,9 +14,11 @@
     };
 }());
 
+var config = window.splashConfig;
+
 var viewerPaths = {
-    'book-reader': 'book-reader-sample/index.html',
-    'full-viewer': 'full-viewer-sample/Default.aspx'
+    'book-reader': config.viewers.bookReader,
+    'full-viewer': config.viewers.full
 };
 var selectedViewerPath;
 $(document).ready(function() {
@@ -271,14 +273,14 @@ updateSelectedViewer(initialViewer);
     //create viewing session
     var createSessionByName = function(name) {
         request({
-            url: "DocUpload.ashx?document=" + name
+            url: config.upload + "?document=" + name
         }, function(resp) {
             fileUploadDone(null, resp);
         });
     };
     //create initialization dropzone
     var dropzone = new DropZone({
-        url: 'DocUpload.ashx',
+        url: config.upload,
         fallback: true,
         done: fileUploadDone
     });

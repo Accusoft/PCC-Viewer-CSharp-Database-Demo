@@ -28,7 +28,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
-    <title>PCC HTML5 .NET C# Sample</title>
+    <title>PrizmDoc Full Viewer .NET C# Sample</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="viewer-assets/css/normalize.min.css">
@@ -45,8 +45,8 @@
         <script src="viewer-assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script src="//pcc-assets.accusoft.com/v10.5/js/viewercontrol.js"></script>
-    <script src="//pcc-assets.accusoft.com/v10.5/js/viewer.js"></script>
+    <script src="//pcc-assets.accusoft.com/v11.0/js/viewercontrol.js"></script>
+    <script src="//pcc-assets.accusoft.com/v11.0/js/viewer.js"></script>
 </head>
 <body>
     <div id="viewer1"></div>
@@ -83,51 +83,13 @@
             uiElements: {
                 download: true,
                 fullScreenOnInit: true,
-                advancedSearch:true
+                advancedSearch:true,
+                attachments: true
             }
         };
         
-        function processAttachments() {
-            // The following javascript will process any attachments for the
-            // email message document types (.EML and .MSG).
-            
-            var countOfAttachmentsRequests = 0;
-
-            function receiveAttachments (data, textStatus, jqXHR) {
-                if (data == null || data.status != 'complete') {
-                    // The request is not complete yet, try again after a short delay.
-                    setTimeout(requestAttachments, countOfAttachmentsRequests * 1000);
-                }
-
-                if (data.attachments.length > 0) {
-                    var links = '';
-                    for (var i = 0; i < data.attachments.length; i++) {
-                        var attachment = data.attachments[i];
-                        links += '<a href="?viewingSessionId=' + attachment.viewingSessionId + '" target="blank">' + attachment.displayName + '</a><br/>';
-                    }
-
-                    $('#attachmentList').html(links);
-                    $('#attachments').show();
-                }
-            }
-
-            function requestAttachments () {
-                if (countOfAttachmentsRequests < 10) {
-                    countOfAttachmentsRequests++;
-                    $.ajax('viewer-webtier/pcc.ashx/ViewingSession/u' + viewingSessionId + '/Attachments', { dataType: 'json' })
-                        .done(receiveAttachments)
-                        .fail(requestAttachments);
-                }
-            }
-
-            requestAttachments();
-        }
-        
         $(document).ready(function () {
             var viewerControl = $("#viewer1").pccViewer(pluginOptions).viewerControl;
-                
-            // Check if the document has any attachments
-            setTimeout(processAttachments, 500);
 
             // /viewer-webtier/pcc.ashx/DbDemo/q?DocumentID=foo
             // Custom code to insert annotations into DB

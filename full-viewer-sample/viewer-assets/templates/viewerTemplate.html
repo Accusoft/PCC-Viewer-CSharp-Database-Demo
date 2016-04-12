@@ -6,6 +6,7 @@
         <div class="pcc-tab-item"><span class="pcc-icon pcc-icon-view"></span> <%= viewLabel %></div>
         <div class="pcc-tab-pane">
             <div class="pcc-pull-right">
+                <button data-pcc-toggle="dialog-attachments" data-pcc-removable-id="attachments" class="pcc-icon pcc-icon-paperclip pcc-hide" title="<%= attachments.tooltip %>"></button>
                 <button class="pcc-icon pcc-icon-print" title="<%= printButton %>" data-pcc-print="launch" data-pcc-removable-id="printing"></button>
                 <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
             </div>
@@ -59,6 +60,7 @@
                     <button data-pcc-search="beginsWith" class="pcc-icon pcc-icon-beginswith" title="<%= beginsWith %>"></button>
                     <button data-pcc-search="endsWith" class="pcc-icon pcc-icon-endswith" title="<%= endsWith %>"></button>
                     <button data-pcc-search="wildcard" class="pcc-icon pcc-icon-wildcard" title="<%= useWildcards %>"></button>
+                    <button data-pcc-search="proximity" class="pcc-icon pcc-icon-proximity" title="<%= proximitySearchToggle %>"></button>
                 </div>
             </div>
             
@@ -81,7 +83,7 @@
         <div class="pcc-tab-item"><span class="pcc-icon pcc-icon-annotate"></span> <%= annotateLabel %></div>
         <div class="pcc-tab-pane pcc-tab-advanced">
             <div class="pcc-pull-right">
-
+			
                     <button class="pcc-icon pcc-icon-save pcc-js-postToDB" title="Post to DB"></button>
                     <button class="pcc-icon pcc-icon-load pcc-js-loadFromDB" title="Load from DB"></button>
 
@@ -91,10 +93,10 @@
                     <button data-pcc-toggle="dialog-save-annotations" class="pcc-icon pcc-icon-save" title="<%= saveAnnotations %>"></button>
                     <button data-pcc-lock-editable-layer data-pcc-toggle="dialog-load-annotations" class="pcc-icon pcc-icon-load" title="<%= loadAnnotations %>"></button>
                     -->
-
-                    <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
-                    <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
-                </div>
+					
+                <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
+                <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
+            </div>
             <div class="pcc-left">
 
                 <% if (annotationsMode === "LayeredAnnotations") { %>
@@ -467,7 +469,7 @@
 <div class="pcc-dialog pcc-dialog-annotation-layer-review" data-pcc-toggle-id="dialog-annotation-layer-review">
     <div class="pcc-dialog-wrapper">
         <div class="pcc-annotation-layer-review-section" data-pcc-annotation-layer-review-section="current">
-            <div class="pcc-annotation-layer-review-section-title">
+            <div class="pcc-annotation-layer-review-section-title pcc-clearfix">
                 <%= annotationLayerReview.myAnnotations %>
                 <div class="pcc-pull-right">
                     <div class="pcc-select pcc-select-annotation-layer-review-current" data-pcc-toggle="dropdown-annotation-layer-review-current">
@@ -484,7 +486,7 @@
         </div>
 
         <div class="pcc-annotation-layer-review-section" data-pcc-annotation-layer-review-section="other">
-            <div class="pcc-annotation-layer-review-section-title">
+            <div class="pcc-annotation-layer-review-section-title pcc-clearfix">
                 <%= annotationLayerReview.annotationsForReview %>
                 <div class="pcc-pull-right">
                     <div class="pcc-select pcc-select-annotation-layer-review-other" data-pcc-toggle="dropdown-annotation-layer-review-other">
@@ -524,6 +526,17 @@
         <div class="pcc-annotation-save-msg"><%= annotations.save.as %></div>
         <input type="text">
         <button class="pcc-disabled" data-pcc-save-layer><%= saveButton %></button>
+    </div>
+</div>
+
+<div class="pcc-dialog pcc-dialog-attachments" data-pcc-toggle-id="dialog-attachments">
+    <div class="pcc-dialog-wrapper">
+        <div class="pcc-attachments-section" data-pcc-annotation-layer-review-section="current">
+            <div class="pcc-attachments-section-title">
+                <%= attachments.title %>
+            </div>
+            <div class="pcc-attachments-section-content"></div>
+        </div>
     </div>
 </div>
     
