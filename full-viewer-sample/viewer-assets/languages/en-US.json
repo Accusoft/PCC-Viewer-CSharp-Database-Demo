@@ -68,6 +68,7 @@
     "annotationsSaved": "Annotations Saved",
     "arrowAnnotation": "Arrow Annotation",
     "attachments": {
+        "failedToLoad": "Attachments failed to load.",
         "noResults": "No attachments available",
         "title": "Attachments",
         "tooltip": "Attachments"

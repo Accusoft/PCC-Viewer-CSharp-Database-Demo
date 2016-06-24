@@ -37,7 +37,8 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="viewer-assets/js/jquery-1.10.2.min.js"><\/script>');</script>
-    <script src="viewer-assets/js/underscore.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script>window._ || document.write('<script src="viewer-assets/js/underscore.min.js"><\/script>');</script>
     <script src="viewer-assets/js/jquery.hotkeys.min.js"></script>
 
     <!--[if lt IE 9]>
@@ -45,8 +46,10 @@
         <script src="viewer-assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script src="//pcc-assets.accusoft.com/v11.0/js/viewercontrol.js"></script>
-    <script src="//pcc-assets.accusoft.com/v11.0/js/viewer.js"></script>
+    <script src="//pcc-assets.accusoft.com/v11.2/js/viewercontrol.js"></script>
+    <script src="//pcc-assets.accusoft.com/v11.2/js/viewer.js"></script>
+    <!-- Configuration information used for this sample. -->
+    <script src="sample-config.js"></script>
 </head>
 <body>
     <div id="viewer1"></div>

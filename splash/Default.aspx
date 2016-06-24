@@ -60,16 +60,17 @@
             <div class="container">
                 <ul class="document-list">
                     <li><a data-document="WordDemoSample.doc">Word Document</a></li>
+                    <li><a data-document="ExcelDemoSample.xlsx">Excel Document</a></li>
                     <li><a data-document="PdfDemoSample.pdf">PDF Document</a></li>
                     <li><a data-document="DxfDemoSample.dxf">AutoCAD</a></li>
                     <li><a data-document="TiffDemoSample.tif">Multi-Page TIFF</a></li>
                     <li><a data-document="JPegDemoSample.jpg">JPEG</a></li>
-                    <li><a data-document="EmailSample.msg">Email</a></li>
+                    <li><a data-document="EmailDemoSample.eml">Email</a></li>
                 </ul>                
                 <div class="upload-zone">
                     <h3>upload a document</h3>
                     <div class="upload-button">
-                        <button class="btn" id="upload">Upload</button></a>
+                        <button class="btn" id="upload">Upload</button>
                     </div>                    
                     <div class="drop-zone" id="drop_zone">
                         <p><span id="dragdropText">Drag and drop a file here</span>
