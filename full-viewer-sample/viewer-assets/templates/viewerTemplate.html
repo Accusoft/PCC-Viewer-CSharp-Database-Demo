@@ -83,17 +83,9 @@
         <div class="pcc-tab-item"><span class="pcc-icon pcc-icon-annotate"></span> <%= annotateLabel %></div>
         <div class="pcc-tab-pane pcc-tab-advanced">
             <div class="pcc-pull-right">
-			
-                    <button class="pcc-icon pcc-icon-save pcc-js-postToDB" title="Post to DB"></button>
-                    <button class="pcc-icon pcc-icon-load pcc-js-loadFromDB" title="Load from DB"></button>
+                <button class="pcc-icon pcc-icon-save pcc-js-postToDB" title="Post to DB"></button>
+                <button class="pcc-icon pcc-icon-load pcc-js-loadFromDB" title="Load from DB"></button>
 
-                    <!--
-                        <!-- Original Save/Load Markup buttons
-
-                    <button data-pcc-toggle="dialog-save-annotations" class="pcc-icon pcc-icon-save" title="<%= saveAnnotations %>"></button>
-                    <button data-pcc-lock-editable-layer data-pcc-toggle="dialog-load-annotations" class="pcc-icon pcc-icon-load" title="<%= loadAnnotations %>"></button>
-                    -->
-					
                 <button data-pcc-comments-panel class="pcc-icon pcc-icon-comment" title="<%= commentsPanel %>"></button>
                 <button data-pcc-toggle="dialog-download" data-pcc-removable-id="download" class="pcc-icon pcc-icon-download" title="<%= download %>"></button>
             </div>
@@ -394,13 +386,19 @@
             </div>
         </div>
 
-        <div class="pcc-row pcc-clear pcc-search-nav">
-            <div class="pcc-col-6">
-                <button class="pcc-full" disabled data-pcc-search="prevResult"><%= previous %></button>
-            </div>
-            <div class="pcc-col-6">
-                <button class="pcc-full" disabled data-pcc-search="nextResult"><%= next %></button>
-            </div>
+        <div class="pcc-row pcc-clear pcc-search-nav pcc-center">
+            <button class="pcc-align-left" data-pcc-search="prevResultsPage" title="<%= searchResultsNavigation.previousPageResults %>">
+                <span>&#9664;&#9664;</span>
+            </button>
+            <button data-pcc-search="prevResult" title="<%= searchResultsNavigation.previousResult %>">
+                <span>&#9650;</span>
+            </button>
+            <button data-pcc-search="nextResult" title="<%= searchResultsNavigation.nextResult %>">
+                <span>&#9660;</span>
+            </button>
+            <button class="pcc-align-right" data-pcc-search="nextResultsPage" title="<%= searchResultsNavigation.nextPageResults %>">
+                <span>&#9654;&#9654;</span>
+            </button>
         </div>
 
         <div class="pcc-search-results-container pcc-hide" data-pcc-search-container="results">

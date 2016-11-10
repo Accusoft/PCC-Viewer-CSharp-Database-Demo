@@ -74,6 +74,10 @@
     margin-left: 5px;
 }
 
+.pccv .pcc-search-page-nav {
+    width: 50px;
+}
+
 // previous search queries
 .pccv .pcc-dropdown.pcc-dropdown-search-box {
     width: 200px;
@@ -331,7 +335,7 @@
 }
 
 // search results
-@searchContainerOffset: 80px;
+@searchContainerOffset: 76px;
 
 .pccv [data-pcc-search-container-toggle=results] { display: none; }
 .pccv .pcc-row-results-status { 
@@ -358,7 +362,17 @@
     }
 }
 
-.pccv .pcc-search-nav { line-height: 38px; margin-bottom: 8px; }
+.pccv .pcc-search-nav {
+    line-height: 38px;
+
+    span {
+        text-decoration: none;
+        display: block;
+        height: 100%;
+        width: 100%;
+        color: @icon_color;
+    }
+}
 
 .pccv .pcc-row-results-header div {
     font-size: 11.5px;

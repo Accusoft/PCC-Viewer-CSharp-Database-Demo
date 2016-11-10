@@ -46,8 +46,8 @@
         <script src="viewer-assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <script src="//pcc-assets.accusoft.com/v11.2/js/viewercontrol.js"></script>
-    <script src="//pcc-assets.accusoft.com/v11.2/js/viewer.js"></script>
+    <script src="//pcc-assets.accusoft.com/v12.0/js/viewercontrol.js"></script>
+    <script src="//pcc-assets.accusoft.com/v12.0/js/viewer.js"></script>
     <!-- Configuration information used for this sample. -->
     <script src="sample-config.js"></script>
 </head>
