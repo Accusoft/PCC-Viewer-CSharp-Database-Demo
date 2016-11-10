@@ -372,6 +372,7 @@
     "reply": "Reply...",
     "requestingDocument": "Requesting Document...",
     "reset": "Reset",
+    "result": "Result: ",
     "results": "Results",
     "retryButton": "Retry",
     "rotateDocument": "Rotate Document",
@@ -410,9 +411,16 @@
         "noTerms": "No terms available",
         "reasonUndefined": "Reason not specified"
     },
+    "searchResultsNavigation": {
+        "nextPageResults": "Show Next Page of Results",
+        "nextResult": "Select Next Result",
+        "previousPageResults": "Show Previous Page of Results",
+        "previousResult": "Select Previous Result"
+    },
     "searchQuickActions": {
         "redactAll": "Redact All",
         "redactionCompleted": "Redaction completed",
+        "redactionFailed": "Redaction failed",
         "redactionDropdownTitle": "Select a redaction reason.",
         "redactionReasonDropdownSelect": "Redaction Reason...",
         "redactReasonUpdateDone": "Done",
